@@ -1,9 +1,5 @@
-import { useState } from "react";
-
 const Search = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState("");
   const handleChange = (event) => {
-    setSearchTerm(event.target.value);
     onSearch(event);
   };
 
@@ -23,9 +19,9 @@ const Search = ({ onSearch }) => {
         className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md m-1"
         placeholder="Search"
       />
-      <p className="block text-sm font-medium text-gray-700 p-2 m-0">
+      {/* <p className="block text-sm font-medium text-gray-700 p-2 m-0">
         Searching for : <strong>{searchTerm}</strong>
-      </p>
+      </p> */}
     </div>
   );
 };
