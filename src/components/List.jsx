@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import User from "./User";
 
-const List = () => {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users").then((response) =>
-      response.json().then((data) => setUsers(data))
-    );
-  }, []);
+const List = ({ users, searchTerm }) => {
+  const parseString = (str) => str.toLowerCase().trim();
+  const filterCallback = (user) => {
+    const { name, username, email } = user;
+    const searchString = parseString(`${name} ${username} ${email}`);
+    return searchString.includes(parseString(searchTerm));
+  };
   return (
     <div className="grid grid-rows-4 grid-flow-col gap-4">
-      {users.map((user) => (
+      {users.filter(filterCallback).map((user) => (
         <User key={user.id} {...user} />
       ))}
     </div>
