@@ -25,7 +25,6 @@ const User = ({
     city,
     suite,
   ];
-  console.log(fields);
   return (
     <div>
       <a

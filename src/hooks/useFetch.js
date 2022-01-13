@@ -21,16 +21,3 @@ export function useFetch(url) {
   }, [url]);
   return { data, error, loading };
 }
-
-// export function Home(){
-//   const {data,loading,error} = useFetch('https://localhost:4000')
-
-//       if(error){
-//          console.log(error)
-//       }
-
-//   return(
-//       {loading && <div>Loading...</div>}
-//       {data && <div>{data.map(item => <div>{item}</div>)}</div>}
-//   )
-// }
