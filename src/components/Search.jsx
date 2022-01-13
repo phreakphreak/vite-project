@@ -1,4 +1,4 @@
-const Search = ({ onSearch }) => {
+const Search = ({ onSearch, searchTerm }) => {
   const handleChange = (event) => {
     onSearch(event);
   };
@@ -18,6 +18,7 @@ const Search = ({ onSearch }) => {
         id="search"
         className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md m-1"
         placeholder="Search"
+        value={searchTerm}
       />
       {/* <p className="block text-sm font-medium text-gray-700 p-2 m-0">
         Searching for : <strong>{searchTerm}</strong>

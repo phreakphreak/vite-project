@@ -8,7 +8,7 @@ import { useFetch } from "./hooks/useFetch";
 const USERS_URL = "https://jsonplaceholder.typicode.com/users";
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("cl");
   const { data, error, loading } = useFetch(USERS_URL);
 
   if (error) {
@@ -21,7 +21,7 @@ const App = () => {
   return (
     <div className="flex flex-col  bg-slate-400 p-6">
       <div className="p-6">
-        <Search onSearch={handleSearch} />
+        <Search searchTerm={searchTerm} onSearch={handleSearch} />
       </div>
       <span className="flex flex-col max-w-md my-0 mx-auto ">
         {searchTerm && (

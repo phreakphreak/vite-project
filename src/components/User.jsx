@@ -3,18 +3,34 @@ const User = ({
   name,
   username,
   email,
-  address,
+  address: {
+    street,
+    suite,
+    city,
+    zipcode,
+    geo: { lat, lng },
+  },
   phone,
   website,
   company,
 }) => {
-  const fields = [username, email, phone, website, company?.name];
+  const fields = [
+    username,
+    email,
+    phone,
+    website,
+    company?.name,
+    street,
+    zipcode,
+    city,
+    suite,
+  ];
   console.log(fields);
   return (
     <div>
       <a
         href="#"
-        className="block p-6 bg-white hover:bg-gray-100 shadow-md border border-gray-200 rounded-lg max-w-sm"
+        className="block p-6 rounded-3xl  bg-white hover:bg-gray-100 shadow-md border border-gray-200 max-w-sm"
       >
         <h5 className="text-gray-900 font-bold text-2xl tracking-tight mb-2">
           {name}
