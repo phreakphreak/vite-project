@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import List from "./components/List";
 import PriceInput from "./components/PriceInput"; // eslint-disable-line
@@ -8,12 +8,19 @@ import { useFetch } from "./hooks/useFetch";
 const USERS_URL = "https://jsonplaceholder.typicode.com/users";
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("cl");
+  const [searchTerm, setSearchTerm] = useState(
+    localStorage.getItem("search") || "React"
+  );
   const { data, error, loading } = useFetch(USERS_URL);
 
   if (error) {
     console.log(error);
   }
+
+  useEffect(() => {
+    localStorage.setItem("search", searchTerm);
+    console.log(localStorage);
+  }, [searchTerm]);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
